@@ -12,4 +12,4 @@ def soma(x, y):
 
 soma1 = soma(2, 3)
 soma2 = soma(11, 9)
-soma(soma1, soma2)
+soma(soma1, soma2) 

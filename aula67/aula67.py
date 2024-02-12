@@ -2,7 +2,7 @@
 Valores padrão para parâmetros
 Ao definir uma função, os parâmetros podem
 ter valores padrão. Caso o valor não seja enviado
-para o parâmetro, o valor não será usado.
+para o parâmetro, o valor será usado.
 Refatorar: editar o seu codigo
 """
 
