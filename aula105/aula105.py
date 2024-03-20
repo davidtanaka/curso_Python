@@ -1,5 +1,4 @@
-
-def decoradora(func):
+def fabrica_de_funcoes(func):
      print('Decoradora 1')
 
      def aninhada(*args, **kwargs):
@@ -8,8 +7,7 @@ def decoradora(func):
           return res
      return aninhada
 
-
-@decoradora
+@fabrica_de_funcoes
 def soma(x, y):
      return x + y
 
