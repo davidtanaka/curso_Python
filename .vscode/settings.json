@@ -39,5 +39,6 @@
   "python.analysis.diagnosticSeverityOverrides": {},
   // "python.defaultInterpreterPath": "./venv/bin/python",
   "python.analysis.typeCheckingMode": "basic",
-  "cSpell.enabled": false
+  "cSpell.enabled": false,
+  "python.analysis.autoImportCompletions": true
 }
