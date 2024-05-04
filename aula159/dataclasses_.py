@@ -7,22 +7,12 @@
 # doc: https://docs.python.org/3/library/dataclasses.html
 from dataclasses import dataclass
 
-@dataclass
+@dataclass(repr=True)
 class Pessoa:
     nome: str
     sobrenome: str
 
-    @property
-    def nome_completo(self):
-        return f'{self.nome} {self.sobrenome}'
-
-    @nome_completo.setter
-    def nome_completo(self, valor):
-        nome, sobrenome = valor.split()
-        self.nome = nome
-        self.sobrenome = ''.join(sobrenome)
-
-
-p1 = Pessoa('davi', 'tanaka')
-p1.nome_completo = 'davi tanaka'
-print(p1.nome_completo)
+if __name__ == '__main__':
+    lista = [Pessoa('A', 'Z'), Pessoa('B', 'Y'), Pessoa('C', 'X')]
+    ordenadas = sorted(lista, reverse=True, key=lambda p: p.sobrenome)
+    print(ordenadas)
