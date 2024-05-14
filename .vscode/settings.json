@@ -9,7 +9,7 @@
     80,
     120
   ],
-  "workbench.colorTheme": "Evondev Dracula New Colour",
+  "workbench.colorTheme": "Evondev Dracula Night Contrast",
   "code-runner.executorMap": {
     "python": "clear ; python -u"
   },
