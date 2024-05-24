@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.common.keys import Keys
 # Chrome Options
 # https://peter.sh/experiments/chromium-command-line-switches/
 
@@ -57,6 +57,11 @@ if __name__ == '__main__':
         )
     )
     search_input.send_keys('Hello world!')
+    search_input.send_keys(Keys.ENTER)
+
+    results = browser.find_element(By.ID, 'search')
+    links = results.find_elements(By.TAG_NAME, 'a')
+    links[0].click()
 
     # Dorme por 10 segundos
     sleep(TIME_TO_WAIT)
