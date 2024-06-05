@@ -1,4 +1,5 @@
 # O básico sobre Signal e Slots (eventos e documentação)
+# type: ignore
 import sys
 
 from PySide6.QtCore import Slot
@@ -55,14 +56,14 @@ status_bar.showMessage('Mostrar mensagem na barra')
 menu = window.menuBar()
 primeiro_menu = menu.addMenu('Primeiro menu')
 primeira_acao = primeiro_menu.addAction('Primeira ação')
-primeira_acao.triggered.connect(slot_example(status_bar))  # type:ignore
+primeira_acao.triggered.connect(slot_example(status_bar))
 
 segunda_action = primeiro_menu.addAction('Segunda ação')
 segunda_action.setCheckable(True)
-segunda_action.toggled.connect(outro_slot)  # type:ignore
-segunda_action.hovered.connect(terceiro_slot(segunda_action))  # type:ignore
+segunda_action.toggled.connect(outro_slot)
+segunda_action.hovered.connect(terceiro_slot(segunda_action))
 
-botao1.clicked.connect(terceiro_slot(segunda_action))  # type:ignore
+botao1.clicked.connect(terceiro_slot(segunda_action))
 
 window.show()
 app.exec()  # O loop da aplicação
