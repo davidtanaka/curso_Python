@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget
+import ctypes
 
 class MainWindow(QMainWindow):
     def __init__(self, parent: QWidget | None = None, *args, **kwargs) -> None:
@@ -6,8 +7,8 @@ class MainWindow(QMainWindow):
     
         # Configurando o layout básico
         self.cw = QWidget()
-        self.v_layout = QVBoxLayout()
-        self.cw.setLayout(self.v_layout) # type: ignore
+        self.vLayout = QVBoxLayout()
+        self.cw.setLayout(self.vLayout) # type: ignore
         self.setCentralWidget(self.cw)
         
         # Título da janela
@@ -19,4 +20,4 @@ class MainWindow(QMainWindow):
         self.setFixedSize(self.width(), self.height())
 
     def addWidgeToVLayout(self, widget: QWidget):
-        self.v_layout.addWidget(widget)
+        self.vLayout.addWidget(widget)

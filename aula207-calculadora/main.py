@@ -13,6 +13,8 @@ if __name__ == '__main__':
     icon = QIcon(str(WINDOW_ICON_PATH))
     window.setWindowIcon(icon)
     app.setWindowIcon(icon)
+
+    # Condição para aparecer o ícone na barra de tarefas (windows).
     if sys.platform.startswith('win'):
         import ctypes
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
