@@ -1,4 +1,3 @@
-from  PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget
 
 class MainWindow(QMainWindow):
@@ -21,4 +20,3 @@ class MainWindow(QMainWindow):
 
     def addWidgeToVLayout(self, widget: QWidget):
         self.v_layout.addWidget(widget)
-        self.adjustFixedSize()
