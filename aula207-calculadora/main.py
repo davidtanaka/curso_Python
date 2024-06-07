@@ -5,10 +5,12 @@ from display import Display
 from PySide6.QtWidgets import QApplication
 from variables import WINDOW_ICON_PATH
 from PySide6.QtGui import QIcon
+from styles import setupTheme
 
 if __name__ == '__main__':
     # Cria a aplicação
     app = QApplication(sys.argv)
+    setupTheme()
     window = MainWindow()
 
     # Define o ícone
