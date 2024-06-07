@@ -24,14 +24,14 @@ qss = f"""
 
 def setupTheme():
     qdarktheme.setup_theme(
-        theme='light',
+        theme='dark',
         corner_shape='rounded',
         custom_colors={
             "[dark]": {
-                "primary": "#1e81b0"
+                "primary": f"{PRIMARY_COLOR}",
             },
             "[light]": {
-                "primary": "#1e81b0"
+                "primary": f"{PRIMARY_COLOR}",
             },
         },
         additional_qss=qss
