@@ -14,7 +14,7 @@ class Button(QPushButton):
         font = self.font()
         font.setPixelSize(MEDIUM_FONT_SIZE)
         self.setFont(font)
-        self.setMinimumSize(75, 75)
+        self.setMinimumSize(10, 10)
 
 class ButtonsGrid(QGridLayout):
     def __init__(self, display: Display, *args, **kwargs) -> None:
