@@ -5,7 +5,7 @@ from display import Display
 from PySide6.QtWidgets import QApplication
 from variables import WINDOW_ICON_PATH
 from PySide6.QtGui import QIcon
-from buttons import Button
+from buttons import Button, ButtonsGrid
 from styles import setupTheme
 
 if __name__ == '__main__':
@@ -21,15 +21,19 @@ if __name__ == '__main__':
 
     # Info
     info = Info('2.0 ^ 10.0 = 1024')
-    window.addToVLayout(info)
+    window.addWidgetToVLayout(info)
 
     # Display
     display = Display()
-    window.addToVLayout(display)
+    window.addWidgetToVLayout(display)
 
+    # Grid
+    buttonsGrid = ButtonsGrid()
+    window.vLayout.addLayout(buttonsGrid)
 
-    button = Button('texto do botao')
-    window.addToVLayout(button)
+    buttonsGrid.addWidget(Button('0'), 0, 0)
+    buttonsGrid.addWidget(Button('1'), 0, 1)
+    buttonsGrid.addWidget(Button('2'), 0, 2)
 
     # Condição para aparecer o ícone na barra de tarefas (windows).
     if sys.platform.startswith('win'):
