@@ -31,9 +31,7 @@ if __name__ == '__main__':
     buttonsGrid = ButtonsGrid()
     window.vLayout.addLayout(buttonsGrid)
 
-    buttonsGrid.addWidget(Button('0'), 0, 0)
-    buttonsGrid.addWidget(Button('1'), 0, 1)
-    buttonsGrid.addWidget(Button('2'), 0, 2)
+    
 
     # Condição para aparecer o ícone na barra de tarefas (windows).
     if sys.platform.startswith('win'):
