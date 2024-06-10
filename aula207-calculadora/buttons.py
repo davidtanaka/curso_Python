@@ -1,3 +1,4 @@
+import math
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import QGridLayout, QPushButton
 from utils import isEmpty, isNumOrDot, isValidNumber
@@ -37,7 +38,7 @@ class ButtonsGrid(QGridLayout):
         self.info = info
         self._equation = ''
         self._equationInitialValue = 'Calculadora'
-        self._left = None
+        self._left = None # type: ignore
         self._right = None
         self._op = None
 
@@ -80,7 +81,7 @@ class ButtonsGrid(QGridLayout):
         if text in '=':
             self._connectButtonClicked(button, self._eq)
 
-        if text in '+-/*':
+        if text in '+-/*^':
             self._connectButtonClicked(
                 button, 
                 self._makeSlot(self._operatorClicked, button)
@@ -102,7 +103,7 @@ class ButtonsGrid(QGridLayout):
         self.display.insert(buttonText)
 
     def _clear(self):
-        self._left = None
+        self._left = None  # type: ignore
         self._right = None
         self._op = None
         self.equation = self._equationInitialValue
@@ -129,14 +130,24 @@ class ButtonsGrid(QGridLayout):
             return
 
         self._right = float(displayText) 
+        self._left: float
         self.equation = f'{self._left} {self._op} {self._right}'
-        result = 0.0
+        result = 'error'
+
         try:
-            result = eval(self.equation)
+            if '^' in self.equation and isinstance(self._left, float):
+                result = math.pow(self._left, self._right)
+            else:
+                result = eval(self.equation)
         except ZeroDivisionError:
             result = ''
+        except OverflowError:
+            print('Número muito grande')
         
         self.display.clear()
         self.info.setText(f'{self.equation} = {result}')
-        self._left = result
+        self._left = result # type: ignore
         self._right = None
+
+        if result == 'error':
+            self._left = None # type: ignore
