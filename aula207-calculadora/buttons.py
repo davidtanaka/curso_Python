@@ -77,6 +77,9 @@ class ButtonsGrid(QGridLayout):
         if text == 'C':
             self._connectButtonClicked(button, self._clear)
 
+        if text in '=':
+            self._connectButtonClicked(button, self._eq)
+
         if text in '+-/*':
             self._connectButtonClicked(
                 button, 
@@ -118,3 +121,22 @@ class ButtonsGrid(QGridLayout):
 
         self._op = buttonText
         self.equation = f'{self._left} {self._op} ??'
+
+    def _eq(self):
+        displayText = self.display.text()
+
+        if not isValidNumber(displayText):
+            return
+
+        self._right = float(displayText) 
+        self.equation = f'{self._left} {self._op} {self._right}'
+        result = 0.0
+        try:
+            result = eval(self.equation)
+        except ZeroDivisionError:
+            result = ''
+        
+        self.display.clear()
+        self.info.setText(f'{self.equation} = {result}')
+        self._left = result
+        self._right = None
