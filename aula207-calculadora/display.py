@@ -26,17 +26,17 @@ class Display(QLineEdit):
         key = event.key()
         KEYS = Qt.Key
 
-        isEnter = key in [KEYS.Key_Enter, KEYS.Key_Return] # type: ignore
-        isDelete = key in [KEYS.Key_Backspace, KEYS.Key_Delete] # type: ignore
-        isEsc = key in [KEYS.Key_Escape] # type: ignore
+        isEnter = key in [KEYS.Key_Enter, KEYS.Key_Return, KEYS.Key_Equal] # type: ignore
+        isDelete = key in [KEYS.Key_Backspace, KEYS.Key_Delete, KEYS.Key_D] # type: ignore
+        isEsc = key in [KEYS.Key_Escape, KEYS.Key_C] # type: ignore
         
-        if isEnter:
-            print('Enter pressionado, sinal emitido', type(self).__name__)
+        if isEnter or text == '=':
+            print(f'Eq {text} pressionado, sinal emitido', type(self).__name__)
             self.eqPressed.emit()
             return event.ignore()
         
-        if isDelete:
-            print('Enter pressionado, sinal emitido', type(self).__name__)
+        if isDelete or text.upper() == 'C':
+            print(f'Delete {text}, sinal emitido', type(self).__name__)
             self.delPressed.emit()
             return event.ignore()
         
