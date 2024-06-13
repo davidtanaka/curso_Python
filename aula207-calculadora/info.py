@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QLabel, QWidget
-from variables import BIG_FONT_SIZE, MEDIUM_FONT_SIZE, SMALL_FONT_SIZE
+from variables import SMALL_FONT_SIZE
 
 class Info(QLabel):
     def __init__(self, text: str, parent: QWidget | None = None) -> None:
