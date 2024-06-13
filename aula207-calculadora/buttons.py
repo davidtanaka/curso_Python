@@ -92,7 +92,6 @@ class ButtonsGrid(QGridLayout):
 
         if text == 'N-':
             self._connectButtonClicked(button, self._invertNumber)
-            self.display.setFocus()
 
         if text == '=':
             self._connectButtonClicked(button, self._eq)
@@ -102,7 +101,6 @@ class ButtonsGrid(QGridLayout):
                 button, 
                 self._makeSlot(self._configLeftOp, text)
             )
-            self.display.setFocus()
 
         if text == '◀':
             self._connectButtonClicked(button, self.display.backspace)
