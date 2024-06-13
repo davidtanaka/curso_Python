@@ -16,6 +16,7 @@ class Display(QLineEdit):
         super().__init__(*args, **kwargs)
         self.configStyle()
 
+    # Configurando estilo do display
     def configStyle(self):
         margins = [TEXT_MARGIN for _ in range(4)]
         self.setStyleSheet(f'font-size: {BIG_FONT_SIZE}px;')
@@ -24,6 +25,7 @@ class Display(QLineEdit):
         self.setAlignment(Qt.AlignmentFlag.AlignRight)
         self.setTextMargins(*margins)
 
+    # Função para configurar teclas 
     def keyPressEvent(self, event: QKeyEvent) -> None:
         text = event.text().strip()
         key = event.key()
@@ -37,18 +39,22 @@ class Display(QLineEdit):
             KEYS.Key_P
         ] # type: ignore
         
+        # Isso configura o botão de =
         if isEnter or text == '=':
             self.eqPressed.emit()
             return event.ignore()
         
+        # Isso configura o botão C(ou del no teclado) para limpar o display
         if isDelete or text.upper() == 'C':
             self.delPressed.emit()
             return event.ignore()
         
+        # Isso configura o botão esc do teclado
         if isEsc:
             self.clearPressed.emit()
             return event.ignore()
         
+        # Isso configura o P para fazer potenciação
         if isOperator:
             if text.lower() == 'p':
                 text = '^'

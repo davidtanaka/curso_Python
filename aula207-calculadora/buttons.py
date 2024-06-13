@@ -65,8 +65,8 @@ class ButtonsGrid(QGridLayout):
         self.display.inputPressed.connect(self._insertToDisplay)
         self.display.operatorPressed.connect(self._configLeftOp)
 
-        for i, row in enumerate(self._gridMask):
-            for j, buttonText in enumerate(row):
+        for rowNumber, row in enumerate(self._gridMask):
+            for colNumber, buttonText in enumerate(row):
                 button = Button(buttonText)
 
                 if not isNumOrDot(buttonText) and not isEmpty(buttonText):
@@ -74,7 +74,7 @@ class ButtonsGrid(QGridLayout):
                     button.setStyleSheet(qss)  # type: ignore
                     self.configSpecialButton(button)
 
-                self.addWidget(button, i, j)  
+                self.addWidget(button, rowNumber, colNumber)  
                 slot = self._makeSlot(self._insertToDisplay, buttonText)
                 self._connectButtonClicked(button, slot)
 
@@ -122,6 +122,7 @@ class ButtonsGrid(QGridLayout):
 
         newNumber = convertToNumber(-convertToNumber(displayText)) # type:ignore
         self.display.setText(str(newNumber))
+        self.display.setFocus()
 
     @Slot()
     def _insertToDisplay(self, text):
