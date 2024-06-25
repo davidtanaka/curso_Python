@@ -6,29 +6,26 @@ from PySide6.QtGui import QKeyEvent
 from PySide6.QtWidgets import QApplication, QMainWindow
 from window import Ui_MainWindow
 
-
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
 
-        self.buttonSend.clicked.connect(self.changeLabelResult)  # type: ignore
+        self.pushButton.clicked.connect(self.changeLabelResult)  # Use the correct name from UI
 
-        self.lineName.installEventFilter(self)
+        self.lineEdit.installEventFilter(self)  # Use the correct name from UI
 
     def changeLabelResult(self):
-        text = self.lineName.text()
-        self.labelResult.setText(text)
+        text = self.lineEdit.text()  # Use the correct name from UI
+        self.label.setText(text)  # Use the correct name from UI
 
     def eventFilter(self, watched: QObject, event: QEvent) -> bool:
         if event.type() == QEvent.Type.KeyPress:
-            # Tenho certeza que o tipo é KeyPress
             event = cast(QKeyEvent, event)
-            text = self.lineName.text()
-            self.labelResult.setText(text + event.text())
+            text = self.lineEdit.text()  # Use the correct name from UI
+            self.label.setText(text + event.text())  # Use the correct name from UI
 
         return super().eventFilter(watched, event)
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
