@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'workerui.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.1
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,49 +18,51 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
     QPushButton, QSizePolicy, QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(572, 418)
-        self.horizontalLayout = QHBoxLayout(Form)
+class Ui_myWidget(object):
+    def setupUi(self, myWidget):
+        if not myWidget.objectName():
+            myWidget.setObjectName(u"myWidget")
+        myWidget.resize(400, 300)
+        font = QFont()
+        font.setPointSize(40)
+        myWidget.setFont(font)
+        self.horizontalLayout = QHBoxLayout(myWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label = QLabel(Form)
-        self.label.setObjectName(u"label")
+        self.label2 = QLabel(myWidget)
+        self.label2.setObjectName(u"label2")
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.label2, 0, 1, 1, 1)
 
-        self.label_2 = QLabel(Form)
-        self.label_2.setObjectName(u"label_2")
+        self.label1 = QLabel(myWidget)
+        self.label1.setObjectName(u"label1")
 
-        self.gridLayout.addWidget(self.label_2, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.label1, 0, 0, 1, 1)
 
-        self.pushButton = QPushButton(Form)
-        self.pushButton.setObjectName(u"pushButton")
+        self.button1 = QPushButton(myWidget)
+        self.button1.setObjectName(u"button1")
 
-        self.gridLayout.addWidget(self.pushButton, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.button1, 1, 0, 1, 1)
 
-        self.pushButton_2 = QPushButton(Form)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.button2 = QPushButton(myWidget)
+        self.button2.setObjectName(u"button2")
 
-        self.gridLayout.addWidget(self.pushButton_2, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.button2, 1, 1, 1, 1)
 
 
         self.horizontalLayout.addLayout(self.gridLayout)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(myWidget)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(myWidget)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Form", u"L1", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"L2", None))
-        self.pushButton.setText(QCoreApplication.translate("Form", u"B1", None))
-        self.pushButton_2.setText(QCoreApplication.translate("Form", u"B2", None))
+    def retranslateUi(self, myWidget):
+        myWidget.setWindowTitle(QCoreApplication.translate("myWidget", u"Form", None))
+        self.label2.setText(QCoreApplication.translate("myWidget", u"L2", None))
+        self.label1.setText(QCoreApplication.translate("myWidget", u"L1", None))
+        self.button1.setText(QCoreApplication.translate("myWidget", u"B1", None))
+        self.button2.setText(QCoreApplication.translate("myWidget", u"B2", None))
     # retranslateUi
-
