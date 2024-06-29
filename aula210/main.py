@@ -74,6 +74,13 @@ if __name__ == '__main__':
         f'DELETE FROM {TABLE_NAME} '
         'WHERE id = "4"'
     )
+
+    cursor.execute(
+        f'UPDATE {TABLE_NAME} '
+        'SET name="qualquer", weight=67.89 '
+        'WHERE id = "2"'
+    )
+
     connection.commit()
 
     cursor.execute(
