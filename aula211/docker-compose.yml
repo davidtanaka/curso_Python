@@ -13,7 +13,7 @@ services:
     volumes:
       - ./mysql_211:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3307:3307
     environment:
       MYSQL_ROOT_PASSWORD: senha
       MYSQL_DATABASE: base_de_dados
