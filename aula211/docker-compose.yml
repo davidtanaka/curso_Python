@@ -1,6 +1,8 @@
 version: '3.9'
 services:
   mysql_211:
+    env_file:
+      - .env
     container_name: mysql_211
     hostname: mysql_211
     image: mysql:8
@@ -13,10 +15,6 @@ services:
     volumes:
       - ./mysql_211:/var/lib/mysql
     ports:
-      - 3307:3307
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: senha
-      MYSQL_DATABASE: base_de_dados
-      MYSQL_USER: usuario
-      MYSQL_PASSWORD: senha
       TZ: America/Sao_Paulo
