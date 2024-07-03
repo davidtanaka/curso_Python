@@ -6,7 +6,7 @@ import pymysql
 
 connection = pymysql.connect(
     host='localhost',
-    user='usuario',
+    user='root',
     password='senha',
     database='base_de_dados',
 )
