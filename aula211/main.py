@@ -37,7 +37,22 @@ with connection:
             sql =(f'INSERT INTO {TABLE_NAME} (nome, idade) VALUES (%s, %s)')
             data = ("Davi", 16)
             result = cursor.execute(sql, data)
-            print(sql)
-            print(data)
-            print(result)
+            # print(sql)
+            # print(data)
+            # print(result)
+        connection.commit()
+
+        with connection.cursor() as cursor:
+            sql2 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
+            ' VALUES (%(name)s, %(age)s) '
+        )
+            data2 = {
+                "age": 16,
+                "name": "De",
+            }
+            
+            result2 = cursor.execute(sql2, data2)
+            print(sql2)
+            print(data2)
+            print(result2)
         connection.commit()
