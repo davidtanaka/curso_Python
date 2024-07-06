@@ -6,6 +6,7 @@ from logging import PlaceHolder
 import pymysql
 import dotenv
 import os
+import pymysql.cursors
 
 TABLE_NAME = 'customers'
 dotenv.load_dotenv()
@@ -16,6 +17,8 @@ connection = pymysql.connect(
     user=os.environ['MYSQL_USER'],
     password=os.environ['MYSQL_PASSWORD'],
     database=os.environ['MYSQL_DATABASE'],
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor,
 )
 
 # print(os.environ['MYSQL_DATABASE'])
@@ -60,7 +63,7 @@ with connection:
             # print(sql2)
             # print(data2)
             # print(result2)
-    connection.commit()
+    connection.commit() 
 
 
     # Inserindo vários valores usando placeholder e uma tupla de dicionário
@@ -146,9 +149,12 @@ with connection:
         sql6 =(f'UPDATE {TABLE_NAME} SET nome=%s, idade=%s WHERE id=%s')
 
         cursor.execute(sql6, ('Eleonor', 102, 2)) # type: ignore
-        data6 = cursor.fetchall() # type: ignore
+        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')  # type: ignore
 
-        for row in data6:
+        # for row in cursor.fetchall():  # type: ignore
+        #     _id, name, age = row
+        #     print(_id, name, age)
+
+        for row in cursor.fetchall():  # type: ignore
             print(row)
-
     connection.commit()
