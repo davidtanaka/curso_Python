@@ -113,11 +113,14 @@ with connection:
 
     # Lendo os valores com SELECT
     with connection.cursor() as cursor:
-        sql5 =(f'SELECT * FROM {TABLE_NAME}'
-            )
+        menor_id = int(input('Digite o menor id: '))
+        maior_id = int(input('Digite o maior id: '))
+        
+        sql5 =(f'SELECT * FROM {TABLE_NAME} WHERE id BETWEEN %s AND %s ')
 
-        cursor.execute(sql)
-        data5 = cursor.fetchall()
+        cursor.execute(sql5, (menor_id, maior_id)) # type: ignore
+        print(cursor.mogrify(sql5, (menor_id, maior_id))) # type: ignore
+        data5 = cursor.fetchall() # type: ignore
 
         for row in data5:
             print(row)
