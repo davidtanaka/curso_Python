@@ -113,14 +113,28 @@ with connection:
 
     # Lendo os valores com SELECT
     with connection.cursor() as cursor:
-        menor_id = int(input('Digite o menor id: '))
-        maior_id = int(input('Digite o maior id: '))
+        # menor_id = int(input('Digite o menor id: '))
+        # maior_id = int(input('Digite o maior id: '))
+        menor_id = 2
+        maior_id = 4
         
         sql5 =(f'SELECT * FROM {TABLE_NAME} WHERE id BETWEEN %s AND %s ')
 
         cursor.execute(sql5, (menor_id, maior_id)) # type: ignore
-        print(cursor.mogrify(sql5, (menor_id, maior_id))) # type: ignore
+        # print(cursor.mogrify(sql5, (menor_id, maior_id))) # type: ignore
         data5 = cursor.fetchall() # type: ignore
 
-        for row in data5:
+        # for row in data5:
+        #     print(row)
+
+
+
+    with connection.cursor() as cursor:
+        sql6 =(f'DELETE FROM {TABLE_NAME} WHERE id = 4')
+
+        cursor.execute(sql6) # type: ignore
+        data6 = cursor.fetchall() # type: ignore
+        connection.commit()
+
+        for row in data6:
             print(row)
