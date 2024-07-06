@@ -130,9 +130,9 @@ with connection:
 
 
     with connection.cursor() as cursor:
-        sql6 =(f'DELETE FROM {TABLE_NAME} WHERE id = 4')
+        sql6 =(f'DELETE FROM {TABLE_NAME} WHERE id = %s')
 
-        cursor.execute(sql6) # type: ignore
+        cursor.execute(sql6, (4)) # type: ignore
         data6 = cursor.fetchall() # type: ignore
         connection.commit()
 
