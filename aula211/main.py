@@ -2,6 +2,7 @@
 # Doc: https://pymysql.readthedocs.io/en/latest/
 # Pypy: https://pypi.org/project/pymysql/
 # GitHub: https://github.com/PyMySQL/PyMySQL
+from logging import PlaceHolder
 import pymysql
 import dotenv
 import os
@@ -128,7 +129,7 @@ with connection:
         #     print(row)
 
 
-
+    # Apagando com DELETE, WHERE e placeholder no PyMySQl
     with connection.cursor() as cursor:
         sql6 =(f'DELETE FROM {TABLE_NAME} WHERE id = %s')
 
@@ -136,5 +137,18 @@ with connection:
         data6 = cursor.fetchall() # type: ignore
         connection.commit()
 
+        # for row in data6:
+        #     print(row)
+
+
+    # Editando com UPDATE, WHERE e placeholder no PyMySQl
+    with connection.cursor() as cursor:
+        sql6 =(f'UPDATE {TABLE_NAME} SET nome=%s, idade=%s WHERE id=%s')
+
+        cursor.execute(sql6, ('Eleonor', 102, 2)) # type: ignore
+        data6 = cursor.fetchall() # type: ignore
+
         for row in data6:
             print(row)
+
+    connection.commit()
