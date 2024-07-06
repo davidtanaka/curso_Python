@@ -33,66 +33,69 @@ with connection:
         cursor.execute(f'TRUNCATE TABLE {TABLE_NAME}')
         connection.commit()
 
-        with connection.cursor() as cursor:
-            sql =(f'INSERT INTO {TABLE_NAME} (nome, idade) VALUES (%s, %s)')
-            data = ("Davi", 16)
-            result = cursor.execute(sql, data)
-            # print(sql)
-            # print(data)
-            # print(result)
-        connection.commit()
+    # Começo a manipular dados a partir daqui
 
-
-        with connection.cursor() as cursor:
-            sql2 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
-            ' VALUES (%(name)s, %(age)s) '
-        )
-            data2 = {
-                "age": 16,
-                "name": "De",
-            }
-            
-            result2 = cursor.execute(sql2, data2)
-            # print(sql2)
-            # print(data2)
-            # print(result2)
-        connection.commit()
-
-
-
-        with connection.cursor() as cursor:
-            sql3 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
-            ' VALUES (%(name)s, %(age)s) '
-        )
-            data3 = (
-                {"age": 18, "name": "Mauro", },
-                {"age": 19, "name": "Julia", },
-                {"age": 83, "name": "Ione", },
-            )
-            
-            result2 = cursor.executemany(sql3, data3)
-            # print(sql3)
-            # print(data3)
-            # print(result2)
-        connection.commit()
-
-        
+    # Inserindo um valor usando placeholder e um itéravel
     with connection.cursor() as cursor:
-            sql2 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
-            ' VALUES (%(name)s, %(age)s) '
-        )
-            data2 = {
-                "age": 16,
-                "name": "De",
-            }
+        sql =(f'INSERT INTO {TABLE_NAME} (nome, idade) VALUES (%s, %s)')
+        data = ("Davi", 16)
+        result = cursor.execute(sql, data)
+        # print(sql)
+        # print(data)
+        # print(result)
+    connection.commit()
+
+    # Inserindo um valor usando placeholder e um dicionário
+    with connection.cursor() as cursor:
+        sql2 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
+        ' VALUES (%(name)s, %(age)s) '
+    )
+        data2 = {
+            "age": 16,
+            "name": "De",
+        }
             
-            result3 = cursor.execute(sql2, data2)
+        result2 = cursor.execute(sql2, data2)
             # print(sql2)
             # print(data2)
-            # print(result3)
+            # print(result2)
     connection.commit()
 
 
+    # Inserindo vários valores usando placeholder e uma tupla de dicionário
+    with connection.cursor() as cursor:
+        sql3 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
+        ' VALUES (%(name)s, %(age)s) '
+    )
+        data3 = (
+            {"age": 18, "name": "Mauro", },
+            {"age": 19, "name": "Julia", },
+            {"age": 83, "name": "Ione", },
+        )
+            
+        result2 = cursor.executemany(sql3, data3)
+        # print(sql3)
+        # print(data3)
+        # print(result2)
+    connection.commit()
+
+        
+    with connection.cursor() as cursor:
+        sql2 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
+        ' VALUES (%(name)s, %(age)s) '
+    )
+        data2 = {
+            "age": 16,
+            "name": "De",
+        }
+            
+        result3 = cursor.execute(sql2, data2)
+        # print(sql2)
+        # print(data2)
+        # print(result3)
+    connection.commit()
+
+    # Inserindo vários valores usando placeholder e uma tupla de tuplas
     with connection.cursor() as cursor:
         sql4 =(f'INSERT INTO {TABLE_NAME} (nome, idade)'
                ' VALUES (%s, %s) '
@@ -103,7 +106,18 @@ with connection:
             )
             
         result4 = cursor.executemany(sql4, data4)
-        print(sql4)
-        print(data4)
-        print(result4)
+        # print(sql4)
+        # print(data4)
+        # print(result4)
         connection.commit()
+
+    # Lendo os valores com SELECT
+    with connection.cursor() as cursor:
+        sql5 =(f'SELECT * FROM {TABLE_NAME}'
+            )
+
+        cursor.execute(sql)
+        data5 = cursor.fetchall()
+
+        for row in data5:
+            print(row)
