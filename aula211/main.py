@@ -9,6 +9,8 @@ import os
 import pymysql.cursors
 
 TABLE_NAME = 'customers'
+CURRENT_CURSOR = pymysql.cursors.SSDictCursor
+
 dotenv.load_dotenv()
 
 
@@ -18,7 +20,7 @@ connection = pymysql.connect(
     password=os.environ['MYSQL_PASSWORD'],
     database=os.environ['MYSQL_DATABASE'],
     charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor,
+    cursorclass=CURRENT_CURSOR,
 )
 
 # print(os.environ['MYSQL_DATABASE'])
