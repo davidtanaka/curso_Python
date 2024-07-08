@@ -2,10 +2,10 @@
 # Doc: https://pymysql.readthedocs.io/en/latest/
 # Pypy: https://pypi.org/project/pymysql/
 # GitHub: https://github.com/PyMySQL/PyMySQL
-from logging import PlaceHolder
 import pymysql
 import dotenv
 import os
+from typing import cast
 import pymysql.cursors
 
 TABLE_NAME = 'customers'
@@ -126,9 +126,9 @@ with connection:
         
         sql5 =(f'SELECT * FROM {TABLE_NAME} WHERE id BETWEEN %s AND %s ')
 
-        cursor.execute(sql5, (menor_id, maior_id)) # type: ignore
-        # print(cursor.mogrify(sql5, (menor_id, maior_id))) # type: ignore
-        data5 = cursor.fetchall() # type: ignore
+        cursor.execute(sql5, (menor_id, maior_id)) 
+        # print(cursor.mogrify(sql5, (menor_id, maior_id))) 
+        data5 = cursor.fetchall() 
 
         # for row in data5:
         #     print(row)
@@ -138,8 +138,8 @@ with connection:
     with connection.cursor() as cursor:
         sql6 =(f'DELETE FROM {TABLE_NAME} WHERE id = %s')
 
-        cursor.execute(sql6, (4)) # type: ignore
-        data6 = cursor.fetchall() # type: ignore
+        cursor.execute(sql6, (4)) 
+        data6 = cursor.fetchall() 
         connection.commit()
 
         # for row in data6:
@@ -148,15 +148,22 @@ with connection:
 
     # Editando com UPDATE, WHERE e placeholder no PyMySQl
     with connection.cursor() as cursor:
+        cursor = cast(CURRENT_CURSOR, cursor)
         sql6 =(f'UPDATE {TABLE_NAME} SET nome=%s, idade=%s WHERE id=%s')
 
-        cursor.execute(sql6, ('Eleonor', 102, 2)) # type: ignore
-        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')  # type: ignore
+        cursor.execute(sql6, ('Eleonor', 102, 2)) 
+        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')  
 
-        # for row in cursor.fetchall():  # type: ignore
-        #     _id, name, age = row
-        #     print(_id, name, age)
+        print('FOR 1: ')
+        for row in cursor.fetchall_unbuffered():  
+            print(row)
 
-        for row in cursor.fetchall():  # type: ignore
+            if row['id'] >= 5:
+                break
+
+        print()
+        print('FOR 2: ')
+        # cursor.scroll(-1)
+        for row in cursor.fetchall_unbuffered():  
             print(row)
     connection.commit()
