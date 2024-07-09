@@ -9,7 +9,7 @@ from typing import cast
 import pymysql.cursors
 
 TABLE_NAME = 'customers'
-CURRENT_CURSOR = pymysql.cursors.SSDictCursor
+CURRENT_CURSOR = pymysql.cursors.DictCursor
 
 dotenv.load_dotenv()
 
@@ -146,24 +146,29 @@ with connection:
         #     print(row)
 
 
-    # Editando com UPDATE, WHERE e placeholder no PyMySQl
+    # Editando com UPDATE, WHERE e placeholder no PyMySQl 
     with connection.cursor() as cursor:
         cursor = cast(CURRENT_CURSOR, cursor)
         sql6 =(f'UPDATE {TABLE_NAME} SET nome=%s, idade=%s WHERE id=%s')
 
         cursor.execute(sql6, ('Eleonor', 102, 2)) 
-        cursor.execute(f'SELECT * FROM {TABLE_NAME} ')  
 
-        print('FOR 1: ')
-        for row in cursor.fetchall_unbuffered():  
+        cursor.execute(F'SELECT * FROM {TABLE_NAME} ORDER BY id DESC LIMIT 1 ')
+        lastIdFromSelect = cursor.fetchone()
+        
+        resultFromSelect = cursor.execute(f'SELECT * FROM {TABLE_NAME} ')  
+
+        data6 = cursor.fetchall()
+
+        for row in data6:  
             print(row)
 
-            if row['id'] >= 5:
-                break
 
-        print()
-        print('FOR 2: ')
-        # cursor.scroll(-1)
-        for row in cursor.fetchall_unbuffered():  
-            print(row)
+        print('resultFromSelect', resultFromSelect)
+        print('resultFromSelect', len(data6))
+        print('rowCount', cursor.rowcount)
+        print('lastrowid', cursor.lastrowid)
+        print('lastrowid na mão', lastIdFromSelect)
+        print('rownumber', cursor.rownumber)
+
     connection.commit()
