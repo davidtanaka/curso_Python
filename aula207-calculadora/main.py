@@ -11,7 +11,7 @@ from styles import setupTheme
 if __name__ == '__main__':
     # Cria a aplicação
     app = QApplication(sys.argv)
-    setupTheme()
+    setupTheme(app)
     window = MainWindow()
 
     # Define o ícone
