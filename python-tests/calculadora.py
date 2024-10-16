@@ -18,11 +18,23 @@ def subtrai(x, y):
 
     >>> subtrai(10, 4)
     6
-    
     """
     assert isinstance(x, (int, float)), 'x precisa ser int ou float'
     assert isinstance(y, (int, float)), 'y precisa ser int ou float'
     return x - y
+
+def dividir(x, y):
+    """ Dividi x e y
+
+    >>> dividir(10, 2)
+    5.0
+
+    >>> dividir(12, 2)
+    6.0
+    """
+    assert isinstance(x, (int, float)), 'x precisa ser int ou float'
+    assert isinstance(y, (int, float)), 'y precisa ser int ou float'
+    return x / y
 
 if __name__ == '__main__':
     import doctest
