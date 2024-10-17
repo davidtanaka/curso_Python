@@ -13,12 +13,12 @@ def bacon_com_ovos(n):
     assert isinstance(n, int), 'n Deve ser int'
 
     if n % 3 == 0 and n % 5 == 0:
-        return 'Bacon com ovos'.strip() # Apenas garantindo qua não tenha espaços indesejados 
+        return 'Bacon com ovos'
     
     if n % 3 == 0:
-        return 'Bacon'.strip()
+        return 'Bacon'
     
     if n % 5 == 0:
-        return 'Ovos'.strip()
+        return 'Ovos'
    
-    return 'Passar fome'.strip() # Apenas garantindo qua não tenha espaços indesejados 
+    return 'Passar fome'

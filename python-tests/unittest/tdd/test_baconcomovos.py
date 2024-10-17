@@ -19,7 +19,7 @@ class TestBaconComOvos(unittest.TestCase):
 
     def test_bacon_com_ovos_deve_retornar_bacon_com_ovos_se_entrada_for_multiplo_de_3_e_5(self):
         entradas = (15, 30, 45, 60)
-        saida = 'Bacon com ovos'.strip() # Apenas garantindo qua não tenha espaços indesejados 
+        saida = 'Bacon com ovos'
         
         for entrada in entradas:
             with self.subTest(entrada=entrada, saida=saida):
@@ -27,7 +27,7 @@ class TestBaconComOvos(unittest.TestCase):
 
     def test_bacon_com_ovos_deve_retornar_passar_fome_se_entrada_nao_for_multiplo_de_3_e_5(self):
         entradas = (1, 2, 4, 7, 8)
-        saida = 'Passar fome'.strip() # Apenas garantindo qua não tenha espaços indesejados 
+        saida = 'Passar fome'
         
         for entrada in entradas:
             with self.subTest(entrada=entrada, saida=saida):
@@ -35,7 +35,7 @@ class TestBaconComOvos(unittest.TestCase):
 
     def test_bacon_com_ovos_deve_retornar_bacon_se_for_multiplo_de_3(self):
         entradas = (3, 6, 9, 12)
-        saida = 'Bacon'.strip() # Apenas garantindo qua não tenha espaços indesejados 
+        saida = 'Bacon'
         
         for entrada in entradas:
             with self.subTest(entrada=entrada, saida=saida):
@@ -43,7 +43,7 @@ class TestBaconComOvos(unittest.TestCase):
 
     def test_bacon_com_ovos_deve_retornar_ovos_se_for_multiplo_de_5(self):
         entradas = (5, 10, 20, 25)
-        saida = 'Ovos'.strip() # Apenas garantindo qua não tenha espaços indesejados 
+        saida = 'Ovos'
         
         for entrada in entradas:
             with self.subTest(entrada=entrada, saida=saida):
