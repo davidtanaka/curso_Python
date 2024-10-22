@@ -1,3 +1,19 @@
+# type: ignore
+try:
+    import sys 
+    import os
+
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+except:
+    raise
+
 import unittest
 from pessoa import Pessoa
 from unittest.mock import patch, Mock
@@ -9,7 +25,7 @@ class TestPessoa(unittest.TestCase):
 
     def test_pessoa_nome_attr_nome_tem_valor_correto(self):
         self.assertEqual(self.p1.nome, 'Davi')
-        self.assertEqual(self.p2.nome, 'Mauro')
+        self.assertEqual(self.p2.nome, 'Mauro') 
 
     def test_attr_nome_e_instancia_de_str(self):
         self.assertIsInstance(self.p1.nome, str)
