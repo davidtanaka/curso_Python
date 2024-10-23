@@ -38,7 +38,7 @@ class Pessoa:
     def __init__(self, nome: str, sobrenome: str, idade: int) -> None:
         self.nome: str = nome
         self.sobrenome: str = sobrenome
-        self.idade: int| float = idade
+        self.idade: int | float = idade
 
     def fala(self):
         return (f'Olá {self.nome} {self.sobrenome} Esse é seu nome '
