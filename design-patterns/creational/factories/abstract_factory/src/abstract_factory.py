@@ -9,3 +9,4 @@ Factory Method usa herança, enquanto Abstract Factory usa a composição.
 
 Princípio: programe para interfaces, não para implementações
 """
+
