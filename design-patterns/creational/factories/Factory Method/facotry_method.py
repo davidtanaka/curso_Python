@@ -31,7 +31,6 @@ class VehicleFactory:
         self.car = self.get_car(tipo)
 
     @staticmethod
-    @abstractmethod
     def get_car(tipo: str) -> Vehicle: ...
     
     def get_customer(self) -> None:
