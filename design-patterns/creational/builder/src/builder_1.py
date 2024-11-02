@@ -65,42 +65,40 @@ class UserBuilder:
 
     def add_firstname(self, firstname): 
         self._result.firstname = firstname
+        return self
 
     def add_lastname(self, lastname):
         self._result.lastname = lastname
+        return self
 
     def add_age(self, age):
         self._result.age = age
+        return self
 
     def add_phone(self, phone):
         self._result.phonenumbers.append(phone)
+        return self
 
     def add_address(self, address):
         self._result.addresses.append(address)
+        return self
 
 class UserDirector:
     def __init__(self, builder):
         self._builder = builder
 
     def with_age(self, firstname, lastname, age):
-        self._builder.add_firstname(firstname)
-        self._builder.add_lastname(lastname) 
-        self._builder.add_age(age) 
+        self._builder.add_firstname(firstname).add_lastname(lastname).add_age(age) 
         return self._builder.result
 
     def with_address(self, firstname, lastname, age, address):
-        self._builder.add_firstname(firstname)
-        self._builder.add_lastname(lastname) 
-        self._builder.add_age(age) 
-        self._builder.add_address(address) 
+        self._builder.add_firstname(firstname).add_lastname(lastname)\
+        .add_age(age).add_address(address) 
         return self._builder.result
 
     def with_phone_all(self, firstname, lastname, age, address, phone):
-        self._builder.add_firstname(firstname)
-        self._builder.add_lastname(lastname) 
-        self._builder.add_age(age) 
-        self._builder.add_address(address)
-        self._builder.add_phone(phone)
+        self._builder.add_firstname(firstname).add_lastname(lastname)\
+        .add_age(age).add_address(address).add_phone(phone)
         return self._builder.result
 
 if __name__ == '__main__':
