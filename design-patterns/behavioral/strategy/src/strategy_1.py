@@ -65,3 +65,4 @@ if __name__ == '__main__':
     print(order2.total, order2.total_with_discount)
     print(order3.total, order3.total_with_discount)
     print(order4.total, order4.total_with_discount)
+    print(Order(200, CustomDiscount(13)).total, Order(200, CustomDiscount(13)).total_with_discount)
