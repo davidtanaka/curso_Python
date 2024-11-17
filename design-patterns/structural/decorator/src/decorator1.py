@@ -14,58 +14,66 @@ ou substituí-la por outra função ou objeto invocável.
 Do livro "Python Fluente", por Luciano Ramalho (pág. 223)
 """
 
-from abc import ABC  # Fornece suporte para criar classes abstratas.
+
+from __future__ import annotations  # Permite o uso de anotações de tipo no estilo futuro.
 from dataclasses import dataclass  # Facilita a criação de classes imutáveis com atributos definidos.
+from typing import List  # Para especificar listas tipadas.
 from copy import deepcopy  # Faz cópias profundas de objetos, útil para listas de objetos complexos.
 
-# Ingredients
+# INGREDIENTS
 @dataclass
 class Ingredient:
     # Classe base para representar um ingrediente com um preço.
     price: float
 
+
 @dataclass
 class Bread(Ingredient):
     # Classe para o ingrediente pão, com um preço fixo.
-    price: float = 1.5
+    price: float = 1.50
+
 
 @dataclass
 class Sausage(Ingredient):
     # Classe para o ingrediente salsicha, com um preço fixo.
-    price: float = 3.9
+    price: float = 4.99
+
 
 @dataclass
 class Bacon(Ingredient):
     # Classe para o ingrediente bacon, com um preço fixo.
     price: float = 7.99
 
+
 @dataclass
 class Egg(Ingredient):
     # Classe para o ingrediente ovo, com um preço fixo.
-    price: float = 3.5
+    price: float = 1.50
+
 
 @dataclass
 class Cheese(Ingredient):
     # Classe para o ingrediente queijo, com um preço fixo.
-    price: float = 6.45
+    price: float = 6.35
+
 
 @dataclass
 class MashedPotatoes(Ingredient):
     # Classe para o ingrediente purê de batatas, com um preço fixo.
-    price: float = 6.2
+    price: float = 2.25
+
 
 @dataclass
 class PotatoSticks(Ingredient):
     # Classe para o ingrediente batata palha, com um preço fixo.
     price: float = 0.99
 
-
 # Hotdogs
-class Hotdog(ABC):
-    # Classe abstrata para um hotdog, que pode ter vários ingredientes.
+class Hotdog:
+    # Classe base para representar um hotdog.
 
-    _name: str
-    _ingredients: list[Ingredient]
+    _name: str  # Nome do hotdog.
+    _ingredients: List[Ingredient]  # Lista de ingredientes do hotdog.
 
     @property
     def price(self) -> float:
@@ -76,17 +84,17 @@ class Hotdog(ABC):
 
     @property
     def name(self) -> str:
-        # Retorna o nome do hotdog. Deve ser implementado pelas subclasses.
-        ...
+        # Retorna o nome do hotdog.
+        return self._name
 
     @property
-    def ingredients(self) -> list[Ingredient]:
+    def ingredients(self) -> List[Ingredient]:
         # Retorna a lista de ingredientes do hotdog.
         return self._ingredients
 
     def __repr__(self) -> str:
         # Retorna uma representação amigável do hotdog.
-        return f'{self.__class__.__name__}({self.price} -> {self.ingredients})'
+        return f'{self.name}({self.price}) -> {self.ingredients})'
 
 
 class SimpleHotdog(Hotdog):
@@ -94,7 +102,7 @@ class SimpleHotdog(Hotdog):
 
     def __init__(self) -> None:
         self._name: str = 'SimpleHotdog'
-        self._ingredients: list[Ingredient] = [
+        self._ingredients: List[Ingredient] = [
             Bread(),
             Sausage(),
             PotatoSticks()
@@ -106,49 +114,82 @@ class SpecialHotdog(Hotdog):
 
     def __init__(self) -> None:
         self._name: str = 'SpecialHotdog'
-        self._ingredients: list[Ingredient] = [
+        self._ingredients: List[Ingredient] = [
             Bread(),
             Sausage(),
             Bacon(),
             Egg(),
             Cheese(),
+            MashedPotatoes(),
             PotatoSticks()
         ]
 
-
+# Decorators
 class HotdogDecorator(Hotdog):
-    # Decorator para adicionar novos ingredientes a um hotdog existente.
+    # Decorator base para adicionar novos comportamentos a um hotdog.
 
-    def __init__(self, hotdog: Hotdog, ingredient: Ingredient) -> None:
-        self.hotdog = hotdog
-        self._ingredient = ingredient
+    def __init__(self, hotdog: Hotdog) -> None:
+        self.hotdog = hotdog  # Hotdog que está sendo decorado.
 
-        # Copia os ingredientes do hotdog original e adiciona o novo ingrediente.
+    @property
+    def price(self) -> float:
+        # Retorna o preço do hotdog decorado.
+        return self.hotdog.price
+
+    @property
+    def name(self) -> str:
+        # Retorna o nome do hotdog decorado.
+        return self.hotdog.name
+
+    @property
+    def ingredients(self) -> List[Ingredient]:
+        # Retorna os ingredientes do hotdog decorado.
+        return self.hotdog.ingredients
+
+
+class BaconDecorator(HotdogDecorator):
+    # Decorator que adiciona bacon a um hotdog.
+
+    def __init__(self, hotdog: Hotdog) -> None:
+        super().__init__(hotdog)  # Chama o construtor da classe base.
+        self._ingredient = Bacon()  # Define o ingrediente bacon.
+
+        # Copia os ingredientes do hotdog original e adiciona bacon.
         self._ingredients = deepcopy(self.hotdog.ingredients)
         self._ingredients.append(self._ingredient)
 
     @property
+    def price(self) -> float:
+        # Calcula o preço total do hotdog com bacon.
+        return round(sum([
+            ingredient.price for ingredient in self._ingredients
+        ]), 2)
+
+    @property
     def name(self) -> str:
-        # Atualiza o nome do hotdog incluindo o novo ingrediente.
+        # Atualiza o nome do hotdog para incluir bacon.
         return f'{self.hotdog.name} +{self._ingredient.__class__.__name__}'
+
+    @property
+    def ingredients(self) -> List[Ingredient]:
+        # Retorna os ingredientes do hotdog com bacon.
+        return self._ingredients
 
 
 if __name__ == "__main__":
-    # Cria um hotdog simples
+    # Cria um hotdog simples.
     simple_hotdog = SimpleHotdog()
+
+    # Decora o hotdog simples sem adicionar ingredientes.
+    decorated_simple_hotdog = HotdogDecorator(simple_hotdog)
+
+    # Adiciona bacon ao hotdog simples.
+    bacon_simple_hotdog = BaconDecorator(simple_hotdog)
+
+    # Adiciona bacon novamente ao hotdog com bacon.
+    bacon_simple_hotdog = BaconDecorator(bacon_simple_hotdog)
+
+    # Mostra os hotdogs criados e decorados.
     print(simple_hotdog)
-
-    # Adiciona bacon ao hotdog simples
-    bacon_simple_hotdog = HotdogDecorator(simple_hotdog, Bacon())
-
-    # Adiciona ovo ao hotdog com bacon
-    egg_bacon_simple_hotdog = HotdogDecorator(bacon_simple_hotdog, Egg())
-
-    # Adiciona purê de batata ao hotdog com ovo e bacon
-    mashed_potato_egg_bacon_simple_hotdog = HotdogDecorator(
-        egg_bacon_simple_hotdog,
-        MashedPotatoes()
-    )
-
-    # Mostra o hotdog final com todos os ingredientes adicionados
-    print(mashed_potato_egg_bacon_simple_hotdog)
+    print(decorated_simple_hotdog)
+    print(bacon_simple_hotdog)
