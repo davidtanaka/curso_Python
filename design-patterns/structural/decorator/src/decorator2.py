@@ -13,79 +13,95 @@ realizar algum processamento com a função decorada e devolvê-la
 ou substituí-la por outra função ou objeto invocável.
 Do livro "Python Fluente", por Luciano Ramalho (pág. 223)
 """
+
 from dataclasses import dataclass
 from copy import deepcopy
+from typing import List
 
 
-# INGREDIENTS
+# INGREDIENTES
 @dataclass
 class Ingredient:
+    """Classe base para os ingredientes, com um atributo de preço."""
     price: float
 
 
 @dataclass
 class Bread(Ingredient):
+    """Classe que representa o pão do hot dog."""
     price: float = 1.50
 
 
 @dataclass
 class Sausage(Ingredient):
+    """Classe que representa a salsicha do hot dog."""
     price: float = 4.99
 
 
 @dataclass
 class Bacon(Ingredient):
+    """Classe que representa o bacon como ingrediente adicional."""
     price: float = 7.99
 
 
 @dataclass
 class Egg(Ingredient):
+    """Classe que representa o ovo como ingrediente adicional."""
     price: float = 1.50
 
 
 @dataclass
 class Cheese(Ingredient):
+    """Classe que representa o queijo como ingrediente adicional."""
     price: float = 6.35
 
 
 @dataclass
 class MashedPotatoes(Ingredient):
+    """Classe que representa o purê de batatas como ingrediente adicional."""
     price: float = 2.25
 
 
 @dataclass
 class PotatoSticks(Ingredient):
+    """Classe que representa batata-palha como ingrediente adicional."""
     price: float = 0.99
 
-# Hotdogs
 
-
+# CLASSE BASE PARA HOTDOGS
 class Hotdog:
-    _name: str
-    _ingredients: list[Ingredient]
+    """Classe base para representar um hot dog."""
+    _name: str  # Nome do hot dog
+    _ingredients: List[Ingredient]  # Lista de ingredientes do hot dog
 
     @property
     def price(self) -> float:
-        return round(sum([
-            ingredient.price for ingredient in self._ingredients
-        ]), 2)
+        """
+        Calcula o preço total do hot dog, somando o preço de todos os ingredientes.
+        """
+        return round(sum([ingredient.price for ingredient in self._ingredients]), 2)
 
     @property
     def name(self) -> str:
+        """Retorna o nome do hot dog."""
         return self._name
 
     @property
-    def ingredients(self) -> list[Ingredient]:
+    def ingredients(self) -> List[Ingredient]:
+        """Retorna a lista de ingredientes do hot dog."""
         return self._ingredients
 
     def __repr__(self) -> str:
+        """Representação em string do hot dog: nome, preço e ingredientes."""
         return f'{self.name}({self.price}) -> {self.ingredients})'
 
 
+# HOTDOGS ESPECÍFICOS
 class SimpleHotdog(Hotdog):
+    """Classe que define um hot dog simples com ingredientes básicos."""
     def __init__(self) -> None:
         self._name: str = 'SimpleHotdog'
-        self._ingredients: list[Ingredient] = [
+        self._ingredients: List[Ingredient] = [
             Bread(),
             Sausage(),
             PotatoSticks()
@@ -93,9 +109,10 @@ class SimpleHotdog(Hotdog):
 
 
 class SpecialHotdog(Hotdog):
+    """Classe que define um hot dog especial com vários ingredientes."""
     def __init__(self) -> None:
         self._name: str = 'SpecialHotdog'
-        self._ingredients: list[Ingredient] = [
+        self._ingredients: List[Ingredient] = [
             Bread(),
             Sausage(),
             Bacon(),
@@ -106,32 +123,40 @@ class SpecialHotdog(Hotdog):
         ]
 
 
-# Decorators
+# DECORADOR PARA HOTDOGS
 class HotdogDecorator(Hotdog):
+    """Decorator que adiciona um ingrediente extra a um hot dog."""
     def __init__(self, hotdog: Hotdog, ingredient: Ingredient) -> None:
-        self.hotdog = hotdog
-        self._ingredient = ingredient
+        self.hotdog: Hotdog = hotdog  # O hot dog original que será decorado
+        self._ingredient: Ingredient = ingredient  # O ingrediente extra
 
-        self._ingredients = deepcopy(self.hotdog.ingredients)
+        # Copia os ingredientes do hot dog original e adiciona o novo ingrediente
+        self._ingredients: List[Ingredient] = deepcopy(self.hotdog.ingredients)
         self._ingredients.append(self._ingredient)
 
     @property
     def name(self) -> str:
+        """Adiciona o nome do ingrediente extra ao nome do hot dog."""
         return f'{self.hotdog.name} +{self._ingredient.__class__.__name__}'
 
 
+# EXECUÇÃO PRINCIPAL
 if __name__ == "__main__":
+    # Criação de um hot dog simples
     simple_hotdog = SimpleHotdog()
-
     print(simple_hotdog)
 
+    # Adicionando bacon ao hot dog simples
     bacon_simple_hotdog = HotdogDecorator(simple_hotdog, Bacon())
+
+    # Adicionando ovo ao hot dog com bacon
     egg_bacon_simple_hotdog = HotdogDecorator(bacon_simple_hotdog, Egg())
 
+    # Adicionando purê de batatas ao hot dog com ovo e bacon
     mashed_potato_egg_bacon_simple_hotdog = HotdogDecorator(
         egg_bacon_simple_hotdog,
         MashedPotatoes()
     )
 
+    # Exibindo o hot dog final
     print(mashed_potato_egg_bacon_simple_hotdog)
-
