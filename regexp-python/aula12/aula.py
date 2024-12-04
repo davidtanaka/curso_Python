@@ -19,3 +19,6 @@ text = '''
 1234-5647
 '''
 pprint(regexp.findall(text))
+
+for phone_number in regexp.findall(text):
+    print(phone_number)
