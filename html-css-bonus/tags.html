@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags for text</title>
+    <title>Tags for Text</title>
     <style>
         .img-in-text {
             width: 45px;
             height: 40px;
         }
+
         .red {
             font-size: 24px;
             color: red;
@@ -19,32 +20,36 @@
     <h1 style="background-color: red;">Heading</h1>
     <h2 style="background-color: blue;">Heading</h2>
     <p>
-        <b>Lorem</b> <strong>ipsum</strong> <i>dolor sit</i> <em>amet</em> <del>vermelho</del> <ins>azul</ins> <s>consectetur</s> <u>adipisicing</u> elit. Magni quo, id 
-        <br>
+        <b>Lorem</b> <strong>ipsum</strong> <i>dolor sit</i> <em>amet</em> <del>vermelho</del> <ins>azul</ins> 
+        <s>consectetur</s> <u>adipisicing</u> elit. Magni quo, id <br>
         <a href="https://github.com/davidtanaka" target="_blank">deserunt</a> nesciunt ab odio, quas aliquam labore i
-        <a href="https://jw.org" target="_blank">
-            <img src="" alt="" class="img-in-text">
+        <a href="https://pt.wikipedia.org/wiki/Matem%C3%A1tica" target="_blank">
+            <img src="https://via.placeholder.com/45" 
+                 alt="Conta" 
+                 class="img-in-text">
         </a>
         <hr>
-        <small>mpedit</small> <code>print()</code> repellat delectus 2<sup>2</sup> <q cite="https://github.com/davidtanaka">voluptas</q> H<sup>2</sup>O quaerat! Quibusdam sed illo ut quae ex
+        <small>mpedit</small> <code>print()</code> repellat delectus 2<sup>2</sup> 
+        <q cite="https://github.com/davidtanaka">voluptas</q> H<sub>2</sub>O quaerat! Quibusdam sed illo ut quae ex
         pedita quas.
-        </p>
-        <pre>
-            <code>
-                @Slot()
-                def slot_example(status_bar):
-                    def inner():
-                        status_bar.showMessage('O meu slot foi executado')
-                    return inner
-                @Slot()
-                def outro_slot(checked):
-                    print('Está marcado?', checked)
-            </code>
-        </pre>
+    </p>
+    <pre>
+        <code>
+@Slot()
+def slot_example(status_bar):
+    def inner():
+        status_bar.showMessage('O meu slot foi executado')
+    return inner
+
+@Slot()
+def outro_slot(checked):
+    print('Está marcado?', checked)
+        </code>
+    </pre>
     <blockquote cite="https://github.com/davidtanaka">
         <p><span class="red">Aqui</span> sim eu estou fazendo um bloco de citação.</p>
     </blockquote>
 
-<div class="red">Eu sou um bloco.</div>
+    <div class="red">Eu sou um bloco.</div>
 </body>
 </html>
