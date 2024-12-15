@@ -1,0 +1,44 @@
+.container-1 {
+    width: 180px;
+    height: 120px;
+    background: red;
+    overflow: hidden; /* Adicionado para conter os elementos flutuantes */
+}
+
+.container-2, .container-3, .container-4 {
+    width: 60px;
+    height: 60px;
+    float: left;
+}
+
+.container-2 {
+    background: blue;
+}
+
+.container-3 {
+    background: beige;
+}
+
+.container-4 {
+    background: violet;
+}
+
+.container-5 {
+    width: 120px;
+    height: 60px;
+    background: pink;
+    float: left;
+    display: flex; /* Adicionado para alinhar o conteúdo */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
+}
+
+.p-container-div {
+    width: auto; /* Permite que o conteúdo se ajuste dinamicamente */
+    height: auto;
+    background: darkcyan;
+    padding: 2px 5px; /* Ajusta o espaço ao redor do texto */
+    color: white; /* Torna o texto visível */
+    font-size: 14px; /* Tamanho da fonte ajustado */
+    border-radius: 3px; /* Suaviza as bordas */
+}
