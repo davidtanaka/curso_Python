@@ -10,7 +10,7 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
     background-image: url(../exercise/docs/netflix-background.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center;    
     height: 100vh;
     color: white;
 }
@@ -26,14 +26,14 @@ body {
 }
 
 .name-netflix h1 {
-    color: rgb(255, 71, 71);
+    color: rgb(229, 9, 20);
     font-size: 36px;
     font-weight: bold;
 }
 
 .enter-button button {
     background-color: rgba(0, 0, 0, 0.6);
-    color: rgb(255, 96, 96);
+    color: rgb(229, 9, 20);
     border: none;
     padding: 10px 20px;
     font-size: 18px;
@@ -70,7 +70,7 @@ body {
 }
 
 .center-text-footer button {
-    background-color: red;
+    background-color: rgb(229, 9, 20);
     color: white;
     padding: 10px 20px;
     border: none;
