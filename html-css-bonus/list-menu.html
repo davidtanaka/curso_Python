@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas e Menus com HTML e CSS</title>
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para o menu de navegação */
+        .navbar {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semitransparente */
+            height: 50px; /* Altura do menu */
+            display: flex;
+            /* justify-content: center; Centraliza horizontalmente os itens */
+            align-items: center; /* Centraliza verticalmente os itens */
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar li {
+            margin-right: 15px;
+        }
+
+        .navbar li:last-child {
+            margin-right: 0; /* Remove margem do último item */
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: left; /* Alinha o texto dos itens à esquerda */
+        }
+
+        .navbar a:hover {
+            background: rgba(0, 0, 0, 0.219);
+        }
+
+        /* Remover margens das listas */
+        ul, ol, dl {
+            margin: 0;
+            padding-left: 40px; /* Mantém o alinhamento visual das listas */
+        }
+
+        dl {
+            margin-top: 10px; /* Pequeno espaço opcional para clareza */
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu de navegação -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">End</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Listas não ordenadas e ordenadas -->
+    <ul>
+        <li>Item 2</li>
+        <li>Item 1</li>
+        <li>Item 3</li>
+    </ul>
+
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+
+    <ol type="A">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+
+    <!-- Lista de definição -->
+    <dl>
+        <dt>Café</dt>
+        <dd>Bebida cor preta (se toma quente)</dd>
+        <dt>Coca Cola</dt>
+        <dd>Bebida cor preta (se toma Gelada)</dd>
+    </dl>
+</body>
+</html>
