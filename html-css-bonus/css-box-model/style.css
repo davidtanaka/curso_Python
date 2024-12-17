@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section-one {
+    background-color: deeppink;
+    background-image: url(https://t3.ftcdn.net/jpg/07/20/39/04/360_F_720390490_exwc0Qw8OkOA0U5tqzhof1afEA4sZKZR.jpg);
+    background-position: center center;
+    color: white;
+    width: 200px;
+    height: 150px;
+    border: 5px solid black;
+    padding: 15px;
+    margin: 20px;
+}
+
+.section-two {
+    background-color: cyan;
+    width: 200px;
+    height: 50px;
+    border: 5px solid black;
+    padding: 15px;
+    margin: 20px;
+}
