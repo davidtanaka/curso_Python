@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas em HTML</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .mytable {
+            border-collapse: collapse;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        #table-description {
+            color: rgb(172, 172, 172);
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .mytable td, .mytable th {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .table-footer, .mytable th {
+            background-color: rgba(201, 201, 193, 0.623);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+    <table class="mytable">
+        <caption id="table-description">Descrição exemplar para tabela</caption>
+        <thead>
+            <tr>
+                <th>Título 1</th>
+                <th>Título 2</th>
+                <th>Título 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Primeira linha -->
+            <tr>
+                <td>Corpo 1</td>
+                <td>Corpo 2</td>
+                <td>Corpo 3</td>
+            </tr>
+
+            <!-- Segunda linha com colspan -->
+            <tr>
+                <td colspan="2">Corpo 1 - ocupando dois espaços</td>
+                <td>Corpo 3</td>
+            </tr>
+
+            <!-- Terceira linha com rowspan -->
+            <tr>
+                <td rowspan="2">Corpo 1 <br> ocupando duas linhas</td>
+                <td>Corpo 2</td>
+                <td>Corpo 3</td>
+            </tr>
+
+            <!-- Quarta linha -->
+            <tr>
+                <td>Corpo 2</td>
+                <td>Corpo 3</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="table-footer">
+            <tr>
+                <td colspan="3">Rodapé da tabela</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
