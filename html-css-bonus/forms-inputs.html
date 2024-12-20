@@ -15,6 +15,9 @@
         .label-genero {
             cursor: pointer;
         }
+        .generic-label {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -42,7 +45,43 @@
         </p>
 
         <p>
-            <button type="reset">Reset</button>
+            <label for="date" class="generic-label">Date:</label><br>
+            <input type="date" id="date" name="date" value="2024-12-19">
+        </p>
+
+        <p>
+            <label for="datetime" class="generic-label">Date:</label><br>
+            <input type="datetime-local" id="datetime" name="datetime" value="2024-12-19T23:30">
+        </p>
+
+        <p>
+            <label for="time" class="generic-label">Date:</label><br>
+            <input type="time" id="time" name="time" value="23:30:01">
+        </p>
+
+        <p>
+            <label for="cor" class="generic-label">Favorite color:</label><br>
+            <input type="color" id="cor" name="cor" value="#f4f4f4">
+        </p>
+
+        <p>
+            <label for="email" class="generic-label">Your email:</label><br>
+            <input type="email" id="email" name="email" accept=".png">
+        </p>
+
+        <p>
+            <label for="file" class="generic-label">Your file:</label><br>
+            <input type="file" id="file" name="file">
+        </p>
+
+        <p>
+            <label for="number" class="generic-label">Number:</label><br>
+            <input type="number" id="number" name="number" placeholder="digite um numero" min="10" max="50">
+        </p>
+
+
+        <p>
+            <button type="reset">Reset</button> 
             <button type="submit">Enviar</button>
         </p>
     </form>
