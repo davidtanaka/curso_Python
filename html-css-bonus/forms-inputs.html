@@ -25,7 +25,7 @@
         <p>O meu formulário</p>
         <p>
             <label for="nome" class="label-name">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome">
         </p>
 
         <p>
@@ -79,6 +79,52 @@
             <input type="number" id="number" name="number" placeholder="digite um numero" min="10" max="50">
         </p>
 
+        <p>
+            <label for="password" class="generic-label">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="digite sua senha">
+        </p>
+
+        <p>
+            <label for="url" class="generic-label">url:</label><br>
+            <input type="url" id="url" name="url" placeholder="URL">
+        </p>
+
+        <p>
+            <label for="range" class="generic-label">range:</label><br>
+            <input type="range" id="range" name="range"> <br> <br>
+
+            <label for="frutas">Escolha uma fruta:</label>
+            <input list="lista-frutas" id="frutas" name="frutas" placeholder="Digite ou escolha...">
+            <datalist id="lista-frutas">
+            <option value="Maçã">
+            <option value="Banana">
+            <option value="Laranja">
+            <option value="Manga">
+            <option value="Uva">    
+    </datalist>
+        </p>
+
+        <p>
+            <label for="search" class="generic-label">Sou um search</label>
+            <input type="search" id="search" name="search" placeholder="search">
+        </p>
+
+        <p>
+            <label for="textarea" class="generic-label">textarea:</label>
+            <textarea name="textarea" id="textarea"></textarea>
+        </p>
+
+        <p>
+            <label for="select">Selecione alguma opção:</label>
+            <select name="select" id="select">
+                <optgroup>
+                    <option value="qualquer 1" label="valor 1">
+                    <option value="qualquer 2" label="valor 2">
+                    <option value="qualquer 3" label="valor 3">
+                    <option value="qualquer 4" label="valor 4">
+                </optgroup>
+            </select>
+        </p>
 
         <p>
             <button type="reset">Reset</button> 
