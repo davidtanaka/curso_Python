@@ -5,131 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulários e Inputs HTML</title>
     <style>
-        .label-name {
+        label {
             cursor: pointer;
             display: block;
+            margin-bottom: 8px;
         }
-        .label-dev {
-            cursor: pointer;
+
+        input, select, textarea, button {
+            margin-bottom: 16px;
+            display: block;
         }
-        .label-genero {
-            cursor: pointer;
-        }
-        .generic-label {
-            cursor: pointer;
+
+        button {
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
     <form action="#" method="get" target="_self" autocomplete="off">
-        <p>O meu formulário</p>
-        <p>
-            <label for="nome" class="label-name">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome">
-        </p>
+        <h1>Meu Formulário</h1>
 
-        <p>
-            <label for="dev" class="label-dev">Sou um dev</label>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome">
+
+        <label>
             <input type="checkbox" id="dev" name="dev" value="yes" checked>
+            Sou um dev
+        </label>
 
-        </p>
+        <fieldset>
+            <legend>Gênero:</legend>
+            <label>
+                <input type="radio" name="genero" id="feminino" value="feminino">
+                Feminino
+            </label>
+            <label>
+                <input type="radio" name="genero" id="masculino" value="masculino">
+                Masculino
+            </label>
+            <label>
+                <input type="radio" name="genero" id="outro" value="outro">
+                Outro
+            </label>
+        </fieldset>
 
-        <p>
-            Gênero: <br>
-            <input type="radio" name="genero" id="femenino" value="femenino" class="label-genero">
-            <label for="femenino">Femenino</label><br>
-            <input type="radio" name="genero" id="masculino" value="masculino" class="label-genero">
-            <label for="masculino">Masculino</label><br>
-            <input type="radio" name="genero" id="outro" value="outro" class="label-genero">
-            <label for="outro">Outro</label>
-        </p>
+        <label for="date">Data:</label>
+        <input type="date" id="date" name="date" value="2024-12-19">
 
-        <p>
-            <label for="date" class="generic-label">Date:</label><br>
-            <input type="date" id="date" name="date" value="2024-12-19">
-        </p>
+        <label for="datetime">Data e Hora:</label>
+        <input type="datetime-local" id="datetime" name="datetime" value="2024-12-19T23:30">
 
-        <p>
-            <label for="datetime" class="generic-label">Date:</label><br>
-            <input type="datetime-local" id="datetime" name="datetime" value="2024-12-19T23:30">
-        </p>
+        <label for="time">Horário:</label>
+        <input type="time" id="time" name="time" value="23:30:01">
 
-        <p>
-            <label for="time" class="generic-label">Date:</label><br>
-            <input type="time" id="time" name="time" value="23:30:01">
-        </p>
+        <label for="cor">Cor favorita:</label>
+        <input type="color" id="cor" name="cor" value="#f4f4f4">
 
-        <p>
-            <label for="cor" class="generic-label">Favorite color:</label><br>
-            <input type="color" id="cor" name="cor" value="#f4f4f4">
-        </p>
+        <label for="email">Seu e-mail:</label>
+        <input type="email" id="email" name="email">
 
-        <p>
-            <label for="email" class="generic-label">Your email:</label><br>
-            <input type="email" id="email" name="email" accept=".png">
-        </p>
+        <label for="file">Arquivo:</label>
+        <input type="file" id="file" name="file">
 
-        <p>
-            <label for="file" class="generic-label">Your file:</label><br>
-            <input type="file" id="file" name="file">
-        </p>
+        <label for="number">Número:</label>
+        <input type="number" id="number" name="number" placeholder="Digite um número" min="10" max="50">
 
-        <p>
-            <label for="number" class="generic-label">Number:</label><br>
-            <input type="number" id="number" name="number" placeholder="digite um numero" min="10" max="50">
-        </p>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha">
 
-        <p>
-            <label for="password" class="generic-label">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="digite sua senha">
-        </p>
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" placeholder="Digite uma URL">
 
-        <p>
-            <label for="url" class="generic-label">url:</label><br>
-            <input type="url" id="url" name="url" placeholder="URL">
-        </p>
+        <label for="range">Selecione um intervalo:</label>
+        <input type="range" id="range" name="range">
 
-        <p>
-            <label for="range" class="generic-label">range:</label><br>
-            <input type="range" id="range" name="range"> <br> <br>
-
-            <label for="frutas">Escolha uma fruta:</label>
-            <input list="lista-frutas" id="frutas" name="frutas" placeholder="Digite ou escolha...">
-            <datalist id="lista-frutas">
+        <label for="frutas">Escolha uma fruta:</label>
+        <input list="lista-frutas" id="frutas" name="frutas" placeholder="Digite ou escolha...">
+        <datalist id="lista-frutas">
             <option value="Maçã">
             <option value="Banana">
             <option value="Laranja">
             <option value="Manga">
-            <option value="Uva">    
-    </datalist>
-        </p>
+            <option value="Uva">
+        </datalist>
 
-        <p>
-            <label for="search" class="generic-label">Sou um search</label>
-            <input type="search" id="search" name="search" placeholder="search">
-        </p>
+        <label for="search">Pesquisar:</label>
+        <input type="search" id="search" name="search" placeholder="Digite sua busca">
 
-        <p>
-            <label for="textarea" class="generic-label">textarea:</label>
-            <textarea name="textarea" id="textarea"></textarea>
-        </p>
+        <label for="textarea">Texto adicional:</label>
+        <textarea name="textarea" id="textarea" rows="4" placeholder="Digite algo..."></textarea>
 
-        <p>
-            <label for="select">Selecione alguma opção:</label>
-            <select name="select" id="select">
-                <optgroup>
-                    <option value="qualquer 1" label="valor 1">
-                    <option value="qualquer 2" label="valor 2">
-                    <option value="qualquer 3" label="valor 3">
-                    <option value="qualquer 4" label="valor 4">
-                </optgroup>
-            </select>
-        </p>
+        <label for="select">Selecione uma opção:</label>
+        <select name="select" id="select">
+            <option value="opcao1">Opção 1</option>
+            <option value="opcao2">Opção 2</option>
+            <option value="opcao3">Opção 3</option>
+            <option value="opcao4">Opção 4</option>
+        </select>
 
-        <p>
-            <button type="reset">Reset</button> 
-            <button type="submit">Enviar</button>
-        </p>
+        <button type="reset">Reset</button>
+        <button type="submit">Enviar</button>
     </form>
 </body>
 </html>
