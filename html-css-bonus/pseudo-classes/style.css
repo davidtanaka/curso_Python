@@ -1,0 +1,53 @@
+.heading:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: yellow;
+}
+
+a {
+    color: darkorange;
+}
+
+a:link {
+    color: darkgreen;
+}
+
+a:visited {
+    color: deeppink;
+}
+
+a:hover {
+    background: darkcyan;
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    background: black;
+    color: white;
+    text-decoration: none;
+}
+
+.text-input {
+    font-size: 15px;
+}
+
+input:focus {
+    box-shadow: 0 0 5px black;
+    outline: none;
+}
+
+/* input:disabled {
+    background-color: lightgreen;
+} */
+
+input:checked + p {
+    font-size: 30px;
+}
+
+.pai .lista li:first-child {
+    background-color: cyan;
+}
+
+.pai .lista li:last-child {
+    background-color: darkgray;
+}
