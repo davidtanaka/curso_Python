@@ -11,6 +11,19 @@
     color: red;
 } */
 
-[meu-atributo="A"] {
-    color: red;
+[meu-atributo~="valor1"] {
+    color: green;
 }
+
+[meu-atributo="valor1"] {
+    color: blue;
+}
+
+/* [meu-atributo^="v"] {
+    color: pink;
+} */
+
+/* [meu-atributo$="1"] {
+    color: pink;
+} */
+
