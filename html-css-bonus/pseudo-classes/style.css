@@ -59,3 +59,15 @@ input:not(:checked) + p {
 p:not(.p-contaniner-not-blue) {
     color: blue;
 }
+
+ul li:nth-child(odd) {
+    background-color: cyan;
+}
+
+ul li:nth-child(even) {
+    background-color: pink;
+}
+
+ul li:nth-child(3n) {
+    background-color: darkturquoise;
+}
