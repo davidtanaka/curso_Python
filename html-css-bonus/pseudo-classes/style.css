@@ -44,10 +44,18 @@ input:checked + p {
     font-size: 30px;
 }
 
+input:not(:checked) + p {
+    background-color: yellow;
+}
+
 .pai .lista li:first-child {
     background-color: cyan;
 }
 
 .pai .lista li:last-child {
     background-color: darkgray;
+}
+
+p:not(.p-contaniner-not-blue) {
+    color: blue;
 }
