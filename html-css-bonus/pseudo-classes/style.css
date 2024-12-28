@@ -40,62 +40,58 @@ input:focus {
     outline: none;
 }
 
-/* input:disabled {
-    background-color: lightgreen;
-} */
-
-input:checked + p {
+input:checked + label {
     font-size: 30px;
 }
 
-input:not(:checked) + p {
+input:not(:checked) + label {
     background-color: yellow;
 }
 
-.pai .lista li:first-child {
+.container .list li:first-child {
     background-color: cyan;
 }
 
-.pai .lista li:last-child {
+.container .list li:last-child {
     background-color: darkgray;
 }
 
-p:not(.p-contaniner-not-blue) {
+p:not(.non-blue-paragraph) {
     color: blue;
 }
 
-ul li:nth-child(odd) {
+ul.list li:nth-child(odd) {
     background-color: cyan;
 }
 
-ul li:nth-child(even) {
+ul.list li:nth-child(even) {
     background-color: pink;
 }
 
-ul li:nth-child(3n) {
+ul.list li:nth-child(3n) {
     background-color: darkturquoise;
 }
 
-ul li::before {
+ul.list li::before {
     content: ' -- ';
     background-color: red;
     color: #fff;
 }
 
-ul li::after {
+ul.list li::after {
     content: ' -- ';
     background-color: green;
     color: #fff;
 }
 
-.p-first::first-letter {
+.highlighted-paragraph::first-letter {
     font-size: 50px;
     display: block;
     float: left;
     margin: 0px 10px 10px 0px;
 }
 
-.p-first::first-line {
+.highlighted-paragraph::first-line {
     font-style: italic;
 }
 
