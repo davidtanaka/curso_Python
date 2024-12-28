@@ -1,3 +1,7 @@
+p {
+    font-size: 25px;
+}
+
 .heading:hover {
     transition: all 0.3s ease-in-out;
     background-color: yellow;
@@ -70,4 +74,36 @@ ul li:nth-child(even) {
 
 ul li:nth-child(3n) {
     background-color: darkturquoise;
+}
+
+ul li::before {
+    content: ' -- ';
+    background-color: red;
+    color: #fff;
+}
+
+ul li::after {
+    content: ' -- ';
+    background-color: green;
+    color: #fff;
+}
+
+.p-first::first-letter {
+    font-size: 50px;
+    display: block;
+    float: left;
+    margin: 0px 10px 10px 0px;
+}
+
+.p-first::first-line {
+    font-style: italic;
+}
+
+p::selection {
+    background-color: black;
+    color: white;
+}
+
+.text-input::placeholder {
+    color: red;
 }
