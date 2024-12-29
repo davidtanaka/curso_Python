@@ -1,0 +1,20 @@
+/* 
+    ID
+    Class
+    Attribute
+    pseudo-class
+    Element
+    pseudo-element
+ */
+
+#p {
+    background-color: red;
+}
+
+.p {
+    background-color: yellow;
+}
+
+#p.p {
+    background-color: green;
+}
