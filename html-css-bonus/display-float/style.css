@@ -24,5 +24,7 @@
 .grid .col .col-content {
     width: 100%;
     height: 100%;
-    background-color: red;
-}
+     background-color: #fff; /* Hexadecimal - abcdef123456789  */
+     /* background-color: rgb(128, 128, 128); /* rgb(128, 128, 128) - rgb => red, green, blue */
+     /* background-color: /* rgba(0, 0, 0, 0.7); */ 
+    }
