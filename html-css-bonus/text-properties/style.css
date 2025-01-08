@@ -1,0 +1,16 @@
+/* https://www.w3schools.com/css/css_text.asp */
+
+p {
+    font-size: 40px;
+    /* font-style: italic;
+    font-weight: bold;
+    direction: ltr;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    line-height: 25px; */
+    text-align: left;
+    /* text-decoration: overline line-through; */
+    /* text-indent: 50px; */
+    text-shadow: 2px 2px 5px red;
+    text-transform: lowercase;
+}
