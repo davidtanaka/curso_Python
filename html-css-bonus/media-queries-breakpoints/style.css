@@ -1,71 +1,76 @@
 /* Estilo básico */
 body {
-    margin: 0;
-    background-color: #f4f4f4;
+  margin: 0;
+  background-color: #f4f4f4;
 }
-  
+
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 300px); /* Padrão: 3 colunas */
-    gap: 20px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  /* Padrão: 3 colunas */
+  gap: 20px;
+  justify-content: center;
 }
-  
+
 .grid-item {
-    width: 300px;
-    height: 300px;
-    background-color: red;
-    border-radius: 15px;
-    border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  border-radius: 15px;
+  /* border-radius: 50%; */
+  /* box-shadow: inset 5px 5px 5px blue, 5px 5px 5px black, inset -5px -5px  5px blue; */
+  box-shadow: 5px 5px black;
 }
-  
-  /* Para telas com largura até 320px */
+
+/* Para telas com largura até 320px */
 @media (max-width: 320px) {
-    .grid-container {
-      grid-template-columns: 1fr; /* 1 item por linha */
-      gap: 10px;
+  .grid-container {
+    grid-template-columns: 1fr;
+    /* 1 item por linha */
+    gap: 10px;
   }
 }
-  
+
 @media (min-width: 321px) and (max-width: 768px) {
-    .grid-container {
-      grid-template-columns: repeat(2, 1fr); /* 2 itens por linha */
-      gap: 15px;
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 itens por linha */
+    gap: 15px;
   }
 }
-  
-  /* Navegação */
+
+/* Navegação */
 .navigation-bar {
-    background-color: black;
-    text-align: center;
-    padding: 40px;
-    margin: 10px 0;
+  background-color: black;
+  text-align: center;
+  padding: 40px;
+  margin: 10px 0;
 }
 
 header a {
-    color: white !important;
+  color: white !important;
 }
-  
+
 .menu-link {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
 }
-  
-  /* Rodapé */
+
+/* Rodapé */
 .footer-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 100vh; /* O rodapé ocupa toda a altura restante */
-    background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  /* O rodapé ocupa toda a altura restante */
+  background-color: #f4f4f4;
 }
-  
+
 .footer-link {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
 }
-  
