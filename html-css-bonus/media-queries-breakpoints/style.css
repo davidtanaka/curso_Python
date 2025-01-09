@@ -2,68 +2,70 @@
 body {
     margin: 0;
     background-color: #f4f4f4;
-  }
+}
   
-  .grid-container {
+.grid-container {
     display: grid;
     grid-template-columns: repeat(3, 300px); /* Padrão: 3 colunas */
     gap: 20px;
     justify-content: center;
-  }
+}
   
-  .grid-item {
+.grid-item {
     width: 300px;
     height: 300px;
     background-color: red;
-  }
+    border-radius: 15px;
+    border-radius: 50%;
+}
   
   /* Para telas com largura até 320px */
-  @media (max-width: 320px) {
+@media (max-width: 320px) {
     .grid-container {
       grid-template-columns: 1fr; /* 1 item por linha */
       gap: 10px;
-    }
   }
+}
   
-  @media (min-width: 321px) and (max-width: 768px) {
+@media (min-width: 321px) and (max-width: 768px) {
     .grid-container {
       grid-template-columns: repeat(2, 1fr); /* 2 itens por linha */
       gap: 15px;
-    }
   }
+}
   
   /* Navegação */
-  .navigation-bar {
+.navigation-bar {
     background-color: black;
     text-align: center;
     padding: 40px;
     margin: 10px 0;
-  }
+}
 
 header a {
     color: white !important;
 }
   
-  .menu-link {
+.menu-link {
     text-decoration: none;
     color: black;
     font-size: 16px;
     font-weight: bold;
-  }
+}
   
   /* Rodapé */
-  .footer-container {
+.footer-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 100vh; /* O rodapé ocupa toda a altura restante */
     background-color: #f4f4f4;
-  }
+}
   
-  .footer-link {
+.footer-link {
     text-decoration: none;
     color: black;
     font-size: 16px;
     font-weight: bold;
-  }
+}
   
