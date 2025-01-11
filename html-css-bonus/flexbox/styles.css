@@ -35,3 +35,36 @@
 .flex-item:nth-child(4) {
     align-self: center;
 } */
+
+body {
+    font-size: 26px;
+}
+
+p {
+    margin: 0 0 24px;
+}
+
+.two-columns {
+    display: flex;
+}
+
+.two-columns .col {
+    display: flex;
+    flex-direction: column;
+    background: blue;
+    margin: 15px;
+    padding: 15px;
+}
+
+.gallery {
+    flex-flow: row wrap;
+
+    display: flex;
+}
+
+.gallery .img {
+    flex: 1 0 20%;
+    height: 50px;
+    background-color: blue;
+    margin: 10px;
+}
