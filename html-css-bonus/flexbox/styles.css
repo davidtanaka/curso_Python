@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 500px;
+    gap: 30px;
+}
+
+.flex-item {
+    width: 100%;
+    background-color: red;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+}
