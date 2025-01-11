@@ -6,18 +6,32 @@
 
 .flex-container {
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: flex-start;
-    /* align-content: center; */
-    background: white;
-    height: 640px;
+    flex-flow: row nowrap;
+    background: yellow;
+    height: 800px;
 }
 
 .flex-item {
-    width: 33.33%;
-    background-color: red;
+    /* flex-grow: 1;
+    flex-basis: 320px;
+    flex-shrink: 0; */
+    /* flex: 1 1 320px; */
+    width: 100%;
     color: white;
-    /* margin: 10px;
-    padding: 10px; */
+    background-color: red;
 }
+
+/* .flex-item:nth-child(2) {
+    flex: 10 1 320px;
+    background-color: purple;
+} */
+
+/* .flex-item:nth-child(3) {
+    align-self: flex-end;
+}
+
+.flex-item:nth-child(4) {
+    align-self: center;
+} */
