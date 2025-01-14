@@ -13,8 +13,12 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 30px;
+    /* grid-template-columns: [um] 1fr
+    [dois] 1fr
+    [tres] 1fr
+    [quatro] 1fr; */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 30px;
 }
 
 .grid div {
@@ -25,10 +29,14 @@ body {
 
 .grid div:nth-child(5) {
     background: red;
-    grid-row: span 1;
     grid-column: span 2;
-    /* grid-column-start: 1;
-    grid-column-end: 4; */
+    /* grid-column-start: um;
+    grid-column-end: quatro; */
+    /* grid-column: span um / quatro; */
+    /* grid-column: span 2 / 4; */
+    /* grid-row: um / quatro; */
+    /* grid-area: um / um / quatro / quatro; */
+    /* grid-area: 1 / 1 / 4 / 4; */
 }
 
 @media (max-width: 768px) {
