@@ -1,0 +1,21 @@
+version: "3.8"  # Removido aviso sobre `version`
+services: 
+  mysql_knex:
+    container_name: mysql_knex
+    hostname: mysql_knex
+    image: mysql:8.0   # Usando a versão 8.0, mais estável
+    restart: always
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb_force_recovery=0
+    volumes: 
+      - C:/docker/mysql_knex:/var/lib/mysql  # Caminho para o volume corrigido
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: base_de_dados
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: senha
+      TZ: America/Sao_Paulo
