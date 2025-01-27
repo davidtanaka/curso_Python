@@ -1,4 +1,3 @@
-version: "3.8"  # Removido aviso sobre `version`
 services: 
   mysql_knex:
     container_name: mysql_knex
@@ -12,7 +11,7 @@ services:
     volumes: 
       - C:/docker/mysql_knex:/var/lib/mysql  # Caminho para o volume corrigido
     ports:
-      - "3310:3306"
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: senha
       MYSQL_DATABASE: base_de_dados
